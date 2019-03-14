@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Battle Ship</title>
+
+	<BGSOUND >
+
+
+	<style>
+
+	body {
+		background: url(ocean.jpg);
+		overflow: hidden;
+	}
+
+
+    /* My Field */
+		
+	.A div {
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.B div {
+		margin-left: 50px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.C div {
+		margin-left: 100px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.D div {
+		margin-left: 150px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.E div {
+		margin-left: 200px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.F div {
+		margin-left: 250px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.G div {
+		margin-left: 300px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.H div {
+		margin-left: 350px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.I div {
+		margin-left: 400px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.J div {
+		margin-left: 450px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+
+	.MyField {
+		position: absolute;
+		margin-left: 20%;
+		margin-top: 14%;
+		z-index: 2;
+	}
+
+
+
+	/* Enemy Field */
+
+	.AA div {
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.BB div {
+		margin-left: 50px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.CC div {
+		margin-left: 100px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.DD div {
+		margin-left: 150px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.EE div {
+		margin-left: 200px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.FF div {
+		margin-left: 250px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.GG div {
+		margin-left: 300px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.HH div {
+		margin-left: 350px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.II div {
+		margin-left: 400px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+	.JJ div {
+		margin-left: 450px;
+		border: 2px solid black;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+	}
+
+	.EnemyField {
+		position: absolute;
+		margin-left: 60%;
+		margin-top: 14%;
+		margin-right: 20%;
+		z-index: 2;
+	}
+
+	/* battle ship logo */
+
+	.BattleShipLOGO {
+		position: absolute;
+		margin-left: 34%;
+		margin-right: 34%;
+	}
+
+	.StartButton {
+		height: 50px;
+		width: 140px;
+		border: 0 ;
+		border-radius: 20px;
+		font-size: 40px;
+		background-color: transparent;
+		position: absolute;
+		margin-top: 20%;
+		margin-left: 47%;
+		margin-right: 47%;
+		outline: none;
+		animation: StartButtonAnimation 1.5s linear infinite;
+	}
+	.StartButton:hover {
+		height: 50px;
+		width: 140px;
+		border: 0;
+		color: lime;
+		border-radius: 20px;
+		font-size: 40px;
+		outline: none;
+		animation: StartButtonAnimation 0s linear infinite;
+	}
+	@keyframes StartButtonAnimation {
+		0% {
+			opacity: 0;
+		}
+
+		50% {
+			opacity: 100;
+		}
+
+		100% {
+			opacity: 0;
+		}
+	}
+
+	/*Ships with 1 live*/
+
+	.Ship1_1 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 40px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 29%;
+		left: 10%;
+	}
+
+	.Ship1_2 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 40px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 29%;
+		left: 8%;
+	}
+
+	.Ship1_3 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 40px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 29%;
+		left: 6%;
+	}
+
+	.Ship1_4 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 40px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 29%;
+		left: 4%;
+	}
+
+	/*Ships with 2 lives*/
+
+	.Ship2_1 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 80px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 35%;
+		left: 10%;
+	}
+
+	.Ship2_2 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 80px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 35%;
+		left: 8%;
+	}
+
+	.Ship2_3 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 80px;
+		width: 20px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 35%;
+		left: 6%;
+	}
+
+	/*Ships with 3 lives*/
+
+	.Ship3_1 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 120px;
+		width: 25px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 44%;
+		left: 10%;
+		margin-bottom: 50%;
+	}
+
+	.Ship3_2 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 120px;
+		width: 25px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 44%;
+		left: 8%;
+		margin-bottom: 50%;
+	}
+
+	/*Ship with 4 live*/
+
+	.Ship4_1 {
+		background-color: grey;
+		border: 2px solid black;
+		height: 190px;
+		width: 30px;
+		border-radius: 50%;
+		z-index: 3;
+		position: absolute;
+		top: 55%;
+		left: 10%;
+		margin-bottom: 50%;
+	}
+
+			/* Settings */
+
+	.SettingsOutline {
+		height: 110%;
+		width: 12%;
+		background-color: #504e4e;
+		border-right: 3px solid black;
+		outline: none;
+		z-index: 100;
+		position: fixed;
+		margin-top: -1%;
+		margin-left: -1%;
+	}
+
+	.SoundSettings {
+		margin-left: 50%;
+		margin-top: 25%;
+		z-index: 200;
+		color: black;
+		background-color: black;
+	}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="A MyField">
+		<div class="1A"></div>
+		<div class="2A"></div>
+		<div class="3A"></div>
+		<div class="4A"></div>
+		<div class="5A"></div>
+		<div class="6A"></div>
+		<div class="7A"></div>
+		<div class="8A"></div>
+		<div class="9A"></div>
+		<div class="10A"></div>
+	</div>
+	<div class="B MyField">
+		<div class="1B"></div>
+		<div class="2B"></div>
+		<div class="3B"></div>
+		<div class="4B"></div>
+		<div class="5B"></div>
+		<div class="6B"></div>
+		<div class="7B"></div>
+		<div class="8B"></div>
+		<div class="9B"></div>
+		<div class="10B"></div>
+	</div>
+	<div class="C MyField">
+		<div class="1C"></div>
+		<div class="2C"></div>
+		<div class="3C"></div>
+		<div class="4C"></div>
+		<div class="5C"></div>
+		<div class="6C"></div>
+		<div class="7C"></div>
+		<div class="8C"></div>
+		<div class="9C"></div>
+		<div class="10C"></div>
+	</div>
+	<div class="D MyField">
+		<div class="1D"></div>
+		<div class="2D"></div>
+		<div class="3D"></div>
+		<div class="4D"></div>
+		<div class="5D"></div>
+		<div class="6D"></div>
+		<div class="7D"></div>
+		<div class="8D"></div>
+		<div class="9D"></div>
+		<div class="10D"></div>
+	</div>
+	<div class="E MyField">
+		<div class="1E"></div>
+		<div class="2E"></div>
+		<div class="3E"></div>
+		<div class="4E"></div>
+		<div class="5E"></div>
+		<div class="6E"></div>
+		<div class="7E"></div>
+		<div class="8E"></div>
+		<div class="9E"></div>
+		<div class="10E"></div>
+	</div>
+	<div class="F MyField">
+		<div class="1F"></div>
+		<div class="2F"></div>
+		<div class="3F"></div>
+		<div class="4F"></div>
+		<div class="5F"></div>
+		<div class="6F"></div>
+		<div class="7F"></div>
+		<div class="8F"></div>
+		<div class="9F"></div>
+		<div class="10F"></div>
+	</div>
+	<div class="G MyField">
+		<div class="1G"></div>
+		<div class="2G"></div>
+		<div class="3G"></div>
+		<div class="4G"></div>
+		<div class="5G"></div>
+		<div class="6G"></div>
+		<div class="7G"></div>
+		<div class="8G"></div>
+		<div class="9G"></div>
+		<div class="10G"></div>
+	</div>
+	<div class="H MyField">
+		<div class="1H"></div>
+		<div class="2H"></div>
+		<div class="3H"></div>
+		<div class="4H"></div>
+		<div class="5H"></div>
+		<div class="6H"></div>
+		<div class="7H"></div>
+		<div class="8H"></div>
+		<div class="9H"></div>
+		<div class="10H"></div>
+	</div>
+	<div class="I MyField">
+		<div class="1I"></div>
+		<div class="2I"></div>
+		<div class="3I"></div>
+		<div class="4I"></div>
+		<div class="5I"></div>
+		<div class="6I"></div>
+		<div class="7I"></div>
+		<div class="8I"></div>
+		<div class="9I"></div>
+		<div class="10I"></div>
+	</div>
+	<div class="J MyField">
+		<div class="1J"></div>
+		<div class="2J"></div>
+		<div class="3J"></div>
+		<div class="4J"></div>
+		<div class="5J"></div>
+		<div class="6J"></div>
+		<div class="7J"></div>
+		<div class="8J"></div>
+		<div class="9J"></div>
+		<div class="10J"></div>
+	</div>
+
+
+
+
+
+	<div class="AA EnemyField">
+		<div class="1AA"></div>
+		<div class="2AA"></div>
+		<div class="3AA"></div>
+		<div class="4AA"></div>
+		<div class="5AA"></div>
+		<div class="6AA"></div>
+		<div class="7AA"></div>
+		<div class="8AA"></div>
+		<div class="9AA"></div>
+		<div class="10AA"></div>
+	</div>
+	<div class="BB EnemyField">
+		<div class="1BB"></div>
+		<div class="2BB"></div>
+		<div class="3BB"></div>
+		<div class="4BB"></div>
+		<div class="5BB"></div>
+		<div class="6BB"></div>
+		<div class="7BB"></div>
+		<div class="8BB"></div>
+		<div class="9BB"></div>
+		<div class="10BB"></div>
+	</div>
+	<div class="CC EnemyField">
+		<div class="1CC"></div>
+		<div class="2CC"></div>
+		<div class="3CC"></div>
+		<div class="4CC"></div>
+		<div class="5CC"></div>
+		<div class="6CC"></div>
+		<div class="7CC"></div>
+		<div class="8CC"></div>
+		<div class="9CC"></div>
+		<div class="10CC"></div>
+	</div>
+	<div class="DD EnemyField">
+		<div class="1DD"></div>
+		<div class="2DD"></div>
+		<div class="3DD"></div>
+		<div class="4DD"></div>
+		<div class="5DD"></div>
+		<div class="6DD"></div>
+		<div class="7DD"></div>
+		<div class="8DD"></div>
+		<div class="9DD"></div>
+		<div class="10DD"></div>
+	</div>
+	<div class="EE EnemyField">
+		<div class="1EE"></div>
+		<div class="2EE"></div>
+		<div class="3EE"></div>
+		<div class="4EE"></div>
+		<div class="5EE"></div>
+		<div class="6EE"></div>
+		<div class="7EE"></div>
+		<div class="8EE"></div>
+		<div class="9EE"></div>
+		<div class="10EE"></div>
+	</div>
+	<div class="FF EnemyField">
+		<div class="1FF"></div>
+		<div class="2FF"></div>
+		<div class="3FF"></div>
+		<div class="4FF"></div>
+		<div class="5FF"></div>
+		<div class="6FF"></div>
+		<div class="7FF"></div>
+		<div class="8FF"></div>
+		<div class="9FF"></div>
+		<div class="10FF"></div>
+	</div>
+	<div class="GG EnemyField">
+		<div class="1GG"></div>
+		<div class="2GG"></div>
+		<div class="3GG"></div>
+		<div class="4GG"></div>
+		<div class="5GG"></div>
+		<div class="6GG"></div>
+		<div class="7GG"></div>
+		<div class="8GG"></div>
+		<div class="9GG"></div>
+		<div class="10GG"></div>
+	</div>
+	<div class="HH EnemyField">
+		<div class="1HH"></div>
+		<div class="2HH"></div>
+		<div class="3HH"></div>
+		<div class="4HH"></div>
+		<div class="5HH"></div>
+		<div class="6HH"></div>
+		<div class="7HH"></div>
+		<div class="8HH"></div>
+		<div class="9HH"></div>
+		<div class="10HH"></div>
+	</div>
+	<div class="II EnemyField">
+		<div class="1II"></div>
+		<div class="2II"></div>
+		<div class="3II"></div>
+		<div class="4II"></div>
+		<div class="5II"></div>
+		<div class="6II"></div>
+		<div class="7II"></div>
+		<div class="8II"></div>
+		<div class="9II"></div>
+		<div class="10II"></div>
+	</div>
+	<div class="JJ EnemyField">
+		<div class="1JJ"></div>
+		<div class="2JJ"></div>
+		<div class="3JJ"></div>
+		<div class="4JJ"></div>
+		<div class="5JJ"></div>
+		<div class="6JJ"></div>
+		<div class="7JJ"></div>
+		<div class="8JJ"></div>
+		<div class="9JJ"></div>
+		<div class="10JJ"></div>
+	</div>
+
+	<img class="BattleShipLOGO" src="https://media.indiedb.com/images/games/1/51/50292/battleship_banner.png" width="800" height="310">
+
+	<button class="StartButton">Start</button>
+	<div class="ShipWith4Lives">
+		<div class="Ship4_1" id="Ship4_1"></div>
+	</div>
+
+	<div class="ShipsWith3Lives">
+		<div class="Ship3_1"></div>
+		<div class="Ship3_2"></div>
+	</div>
+
+	<div class="ShipsWith2Lives">
+		<div class="Ship2_1"></div>
+		<div class="Ship2_2"></div>
+		<div class="Ship2_3"></div>
+	</div>
+	<div class="ShipsWith1Live">
+		<div class="Ship1_1"></div>
+		<div class="Ship1_2"></div>
+		<div class="Ship1_3"></div>
+		<div class="Ship1_4"></div>
+	</div>
+
+<!--   	<audio controls>
+    	<source src="Music3.wav" type="audio/wav; codecs=vorbis">
+  	</audio> -->
+
+  	<div class="Settings">
+  		<div class="SettingsOutline"></div>
+  		<div class="WordSettings_Clicked">Settings</div>
+  		<button class="WordSettings_NotClicked">Settings</button>
+  		<div class="WordGameSettings_Clicked">Game Settings</div>
+  		<button class="WordGameSettings_NotClicked">Game Settings</button>
+  		<div class="SlashBetweenWords">/</div>
+  		<input type="range" name="SoundSettings" class="SoundSettings" id="SoundSettings">
+  	</div>
+
+	<script>
+		/*$('#Ship4_1').draggable({
+		grid: [100,50]
+		});*/
+	</script>
+
+</body>
+</html>
